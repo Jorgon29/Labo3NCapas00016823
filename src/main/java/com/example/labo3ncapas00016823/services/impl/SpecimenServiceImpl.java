@@ -62,7 +62,7 @@ public class SpecimenServiceImpl implements SpecimenService {
     @Override
     public SpecimenResponse getSpecimenById(UUID id) {
         return specimenMapper.toDto(specimenRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Specimen not found in Hyrule Records"))
+                .orElseThrow(() -> new ResourceNotFoundException("Specimen not found in Sheikah Slate records"))
         );
     }
 
