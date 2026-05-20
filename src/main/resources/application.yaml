@@ -1,7 +1,9 @@
 spring:
   application:
     name: Labo3NCapas00016823
-
+  sql:
+    init:
+      mode: always
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
@@ -14,3 +16,4 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
