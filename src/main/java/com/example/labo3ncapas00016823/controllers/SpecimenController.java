@@ -3,7 +3,6 @@ package com.example.labo3ncapas00016823.controllers;
 import com.example.labo3ncapas00016823.domain.dto.request.CreateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.request.UpdateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.response.GeneralResponse;
-import com.example.labo3ncapas00016823.domain.dto.response.specimen.SpecimenResponse;
 import com.example.labo3ncapas00016823.services.interfaces.SpecimenService;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @RestController("/api/specimens")
