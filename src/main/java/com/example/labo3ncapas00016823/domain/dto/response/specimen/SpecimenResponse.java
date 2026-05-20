@@ -1,4 +1,4 @@
-package com.example.labo3ncapas00016823.domain.dto.response;
+package com.example.labo3ncapas00016823.domain.dto.response.specimen;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -3,13 +3,18 @@ package com.example.labo3ncapas00016823.services.impl;
 import com.example.labo3ncapas00016823.common.mappers.SpecimenMapper;
 import com.example.labo3ncapas00016823.domain.dto.request.CreateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.request.UpdateSpecimenRequest;
-import com.example.labo3ncapas00016823.domain.dto.response.SpecimenResponse;
+import com.example.labo3ncapas00016823.domain.dto.response.PageableResponse;
+import com.example.labo3ncapas00016823.domain.dto.response.specimen.SpecimenResponse;
 import com.example.labo3ncapas00016823.domain.entities.Specimen;
 import com.example.labo3ncapas00016823.exceptions.ResourceNotFoundException;
 import com.example.labo3ncapas00016823.repositories.SpecimenRepository;
 import com.example.labo3ncapas00016823.services.interfaces.SpecimenService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,14 +36,27 @@ public class SpecimenServiceImpl implements SpecimenService {
     }
 
     @Override
-    public List<SpecimenResponse> getAllSpecimens() {
-        List<Specimen> specimens = specimenRepository.findAll();
-        if (specimens.isEmpty())
-            throw new ResourceNotFoundException("No specimens are registered in Hyrule");
+    public PageableResponse<SpecimenResponse> getAllSpecimens(int page, int size, String sortBy, String sortOrder) {
+        Sort sort = sortOrder.equalsIgnoreCase("desc") ?
+                Sort.by(sortBy).descending() :
+                Sort.by(sortBy).ascending();
 
-        return specimens.stream()
-                .map(specimenMapper::toDto)
-                .collect(Collectors.toList());
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        Page<SpecimenResponse> specimenPage = specimenMapper.toDtoPage(
+                specimenRepository.findAll(pageable)
+        );
+        if (specimenPage.getTotalElements() == 0) {
+            throw new ResourceNotFoundException("No specimens are registered in Hyrule");
+        }
+
+        return PageableResponse.<SpecimenResponse>builder()
+                .content(specimenPage.getContent())
+                .size(specimenPage.getSize())
+                .page(page)
+                .last(specimenPage.isLast())
+                .totalElements(specimenPage.getTotalElements())
+                .build();
     }
 
     @Override
