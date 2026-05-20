@@ -1,20 +1,23 @@
 package com.example.labo3ncapas00016823.controllers;
 
+import com.example.labo3ncapas00016823.domain.dto.request.CreateSpecimenRequest;
+import com.example.labo3ncapas00016823.domain.dto.request.UpdateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.response.GeneralResponse;
 import com.example.labo3ncapas00016823.domain.dto.response.specimen.SpecimenResponse;
 import com.example.labo3ncapas00016823.services.interfaces.SpecimenService;
+import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
-@RestController
+@RestController("/api/specimens")
 @RequiredArgsConstructor
 public class SpecimenController {
     private final SpecimenService specimenService;
@@ -30,6 +33,50 @@ public class SpecimenController {
                 "Specimens found",
                 HttpStatus.OK,
                 specimenService.getAllSpecimens(page, size, sortBy, sortOrder)
+        );
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GeneralResponse> getSpecimenById(
+            @PathParam("id") UUID id){
+        return buildResponse(
+                "Specimen found for id: " + id,
+                HttpStatus.OK,
+                specimenService.getSpecimenById(id)
+        );
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<GeneralResponse> updateSpecimen(
+            @PathParam("id") UUID id,
+            @RequestBody @Valid UpdateSpecimenRequest request
+            ){
+        return buildResponse(
+                "Updated specimen with id: " + id,
+                HttpStatus.OK,
+                specimenService.updateSpecimen(id, request)
+        );
+    }
+
+    @PostMapping
+    public ResponseEntity<GeneralResponse> createSpecimen(
+            @RequestBody @Valid CreateSpecimenRequest request
+    ){
+        return buildResponse(
+                "Created specimen",
+                HttpStatus.CREATED,
+                specimenService.createSpecimen(request)
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<GeneralResponse> deleteSpecimen(
+        @PathParam("id") UUID id
+    ){
+        return buildResponse(
+                "Deleted specimen with id: " + id,
+                HttpStatus.OK,
+                specimenService.deleteSpecimen(id)
         );
     }
 
