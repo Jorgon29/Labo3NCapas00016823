@@ -5,7 +5,6 @@ import com.example.labo3ncapas00016823.domain.dto.request.CreateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.request.UpdateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.response.PageableResponse;
 import com.example.labo3ncapas00016823.domain.dto.response.specimen.SpecimenResponse;
-import com.example.labo3ncapas00016823.domain.entities.Specimen;
 import com.example.labo3ncapas00016823.exceptions.ResourceNotFoundException;
 import com.example.labo3ncapas00016823.repositories.SpecimenRepository;
 import com.example.labo3ncapas00016823.services.interfaces.SpecimenService;
@@ -17,9 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
