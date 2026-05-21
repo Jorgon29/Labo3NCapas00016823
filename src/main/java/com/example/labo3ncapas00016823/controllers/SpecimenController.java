@@ -5,7 +5,6 @@ import com.example.labo3ncapas00016823.domain.dto.request.UpdateSpecimenRequest;
 import com.example.labo3ncapas00016823.domain.dto.response.GeneralResponse;
 import com.example.labo3ncapas00016823.services.interfaces.SpecimenService;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +36,7 @@ public class SpecimenController {
 
     @GetMapping("/{id}")
     public ResponseEntity<GeneralResponse> getSpecimenById(
-            @PathParam("id") UUID id){
+            @PathVariable UUID id){
         return buildResponse(
                 "Specimen found for id: " + id,
                 HttpStatus.OK,
@@ -47,7 +46,7 @@ public class SpecimenController {
 
     @PutMapping("/{id}")
     public ResponseEntity<GeneralResponse> updateSpecimen(
-            @PathParam("id") UUID id,
+            @PathVariable UUID id,
             @RequestBody @Valid UpdateSpecimenRequest request
             ){
         return buildResponse(
@@ -70,7 +69,7 @@ public class SpecimenController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<GeneralResponse> deleteSpecimen(
-        @PathParam("id") UUID id
+            @PathVariable UUID id
     ){
         return buildResponse(
                 "Deleted specimen with id: " + id,
