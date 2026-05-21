@@ -1,0 +1,329 @@
+{
+  "info": {
+    "_postman_id": "9305d30a-347f-4695-92cc-f3bda3f804e4",
+    "name": "Labo3NCAPAS00016823",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55053318",
+    "_collection_link": "https://go.postman.co/collection/55053318-9305d30a-347f-4695-92cc-f3bda3f804e4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (page 2 and size 5)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?page=1&size=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (size 100)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?size=100",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "size",
+              "value": "100"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (sort by name)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?sortBy=name",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "sortBy",
+              "value": "name"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (sortOrder desc)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?sortOrder=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "sortOrder",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (sortBy danger level and sortOrder=desc)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?sortBy=dangerLevel&sortOrder=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "sortBy",
+              "value": "dangerLevel"
+            },
+            {
+              "key": "sortOrder",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all (all parameters)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens?page=2&size=3&sortBy=name&sortOrder=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "2"
+            },
+            {
+              "key": "size",
+              "value": "3"
+            },
+            {
+              "key": "sortBy",
+              "value": "name"
+            },
+            {
+              "key": "sortOrder",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get by id (exists)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens/9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens",
+            "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get by id (not found)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens/9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3eff",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens",
+            "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3eff"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update specimen",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Calamity Ganon\",\n    \"region\": \"Buried deep underground\",\n    \"dangerLevel\": 10,\n    \"isFriendly\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/specimens/9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens",
+            "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create specimen",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Cucco\",\n  \"region\": \"Kakariko Village\",\n  \"dangerLevel\": 3,\n  \"isFriendly\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/specimens",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete by id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/specimens/a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "specimens",
+            "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
