@@ -15,7 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@RestController("/api/specimens")
+@RestController
+@RequestMapping("/api/specimens")
 @RequiredArgsConstructor
 public class SpecimenController {
     private final SpecimenService specimenService;
