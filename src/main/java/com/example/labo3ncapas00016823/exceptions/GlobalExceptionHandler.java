@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleResourceNotFound(ResourceNotFoundException e) {
-        return buildErrorResponse(HttpStatus.NOT_FOUND, e.getMessage());
+        return buildErrorResponse(HttpStatus.CONFLICT, e.getMessage());
     }
 
     public ResponseEntity<ApiErrorResponse> buildErrorResponse(HttpStatus status, Object data) {
