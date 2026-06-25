@@ -1,19 +1,16 @@
 spring:
   application:
-    name: Labo3NCapas00016823
-  sql:
-    init:
-      mode: always
+    name: SPRING_APPLICATION_NAME
+
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
 
   jpa:
-    show-sql: false
+    show-sql: ${SPRING_JPA_SHOW_SQL}
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL}
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    defer-datasource-initialization: true
+        dialect: ${SPRING_JPA_HIBERNATE_DIALECT}
