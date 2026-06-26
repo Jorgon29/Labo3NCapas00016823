@@ -7,5 +7,5 @@ INSERT INTO Specimen (id, name, region, danger_level, is_friendly) VALUES
 ('f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c', 'Lizalfos', 'Lanayru Wetlands', 4, FALSE),
 ('7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d', 'Guardian Stalker', 'Central Hyrule', 8, FALSE),
 ('8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e', 'Lynel', 'Hebra Mountains', 9, FALSE),
-('9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f', 'Calamity Ganon', 'Hyrule Castle', 10, FALSE)
+('9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f', 'Calamity Gano', 'Hyrule Castle', 10, FALSE)
 ON CONFLICT (id) DO NOTHING;
